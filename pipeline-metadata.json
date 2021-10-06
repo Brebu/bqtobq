@@ -1,0 +1,21 @@
+{
+  "name": "BqToBq template options",
+  "description": "Used by BqToBq template ",
+  "parameters": [
+    {
+      "name": "inputTable",
+      "label": "Enter your BigQuery table spec to read from",
+      "helpText": "Ex: project_id:dataset.tableName"
+    },
+    {
+      "name": "outputTable",
+      "label": "Enter your BigQuery table spec to write in",
+      "helpText": "Ex: project_id:dataset.tableName"
+    },
+    {
+      "name": "bigQueryLoadingTemporaryDirectory",
+      "label": "Provides a custom location on GCS for storing temporary files to be loaded via BigQuery batch load jobs.",
+      "helpText": "Ex: gs://bucket/temp"
+    }
+  ]
+}

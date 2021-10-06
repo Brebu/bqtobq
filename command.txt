@@ -1,0 +1,4 @@
+gcloud dataflow flex-template build "gs://xywex/template/templates/testis.json" --image-gcr-path "gcr.io/brebu-project/europe-west2/testis:latest" --sdk-language "JAVA" --flex-template-base-image JAVA11 --metadata-file "pipeline-metadata.json" --jar "target/BqToBq-bundled-1.0.jar" --env FLEX_TEMPLATE_JAVA_MAIN_CLASS="poc.gcp.BqToBqPipeline"
+
+
+gcloud dataflow flex-template run "bqtobq-`date +%Y%m%d-%H%M%S`" --template-file-gcs-location gs://xywex/template/templates/testis.json --region europe-west2 --parameters ^~^inputTable="brebu-project:xoxo.xoxo_tbl"~outputTable="brebu-project:xoxo.output_tbl"~bigQueryLoadingTemporaryDirectory="gs://xywex/temp"
