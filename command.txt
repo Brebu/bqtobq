@@ -2,3 +2,9 @@ gcloud dataflow flex-template build "gs://xywex/template/templates/testis.json" 
 
 
 gcloud dataflow flex-template run "bqtobq-`date +%Y%m%d-%H%M%S`" --template-file-gcs-location gs://xywex/template/templates/testis.json --region europe-west2 --parameters ^~^inputTable="brebu-project:xoxo.xoxo_tbl"~outputTable="brebu-project:xoxo.output_tbl"~bigQueryLoadingTemporaryDirectory="gs://xywex/temp"
+
+
+# Build Docker Image
+docker image build -t $TEMPLATE_IMAGE .
+# Push image to Google Cloud Registry
+docker push $TEMPLATE_IMAGE
